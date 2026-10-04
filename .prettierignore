@@ -1,0 +1,11 @@
+pnpm-lock.yaml
+supabase/.temp
+supabase/.branches
+**/.expo
+**/.next
+**/dist
+**/coverage
+**/ios
+**/android
+*.sql
+packages/supabase/src/database.types.ts

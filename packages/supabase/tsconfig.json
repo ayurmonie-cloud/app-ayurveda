@@ -1,0 +1,4 @@
+{
+  "extends": "@ayurmonie/tsconfig/library.json",
+  "include": ["src"]
+}
