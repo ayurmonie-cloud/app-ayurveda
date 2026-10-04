@@ -8,4 +8,3 @@ supabase/.branches
 **/ios
 **/android
 *.sql
-packages/supabase/src/database.types.ts
