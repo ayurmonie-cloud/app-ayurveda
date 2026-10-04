@@ -1,0 +1,55 @@
+{
+  "common": {
+    "appName": "Ayurmonie",
+    "continue": "Continuar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "loading": "Cargando…",
+    "retry": "Reintentar",
+    "errorGeneric": "Se ha producido un error. Vuelve a intentarlo en un momento."
+  },
+  "auth": {
+    "signInTitle": "Hola de nuevo",
+    "signInSubtitle": "Inicia sesión para retomar tu programa.",
+    "signUpTitle": "Crea tu cuenta",
+    "signUpSubtitle": "Tu cuenta te permite encontrar tus programas en todos tus dispositivos.",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "passwordHint": "Mínimo 8 caracteres",
+    "signIn": "Iniciar sesión",
+    "signUp": "Crear mi cuenta",
+    "signOut": "Cerrar sesión",
+    "noAccount": "¿Aún no tienes cuenta? Regístrate",
+    "hasAccount": "¿Ya tienes cuenta? Inicia sesión",
+    "checkEmail": "Revisa tu correo para confirmar tu dirección y luego inicia sesión.",
+    "invalidEmail": "Correo electrónico no válido",
+    "passwordTooShort": "La contraseña debe tener al menos 8 caracteres"
+  },
+  "tabs": {
+    "today": "Hoy",
+    "programs": "Programas",
+    "journal": "Diario",
+    "profile": "Perfil"
+  },
+  "today": {
+    "greeting": "Hola {{name}}",
+    "greetingAnonymous": "Hola",
+    "empty": "Tu programa del día aparecerá aquí."
+  },
+  "programs": {
+    "empty": "Los programas llegarán pronto."
+  },
+  "journal": {
+    "empty": "Tu diario de seguimiento aparecerá aquí."
+  },
+  "profile": {
+    "language": "Idioma",
+    "account": "Cuenta",
+    "disclaimer": "Los consejos de la aplicación no sustituyen una opinión médica."
+  },
+  "languages": {
+    "fr": "Français",
+    "en": "English",
+    "es": "Español"
+  }
+}

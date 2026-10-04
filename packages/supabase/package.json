@@ -1,0 +1,23 @@
+{
+  "name": "@ayurmonie/supabase",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2"
+  },
+  "devDependencies": {
+    "@ayurmonie/eslint-config": "workspace:*",
+    "@ayurmonie/tsconfig": "workspace:*",
+    "@supabase/supabase-js": "^2.117.2",
+    "eslint": "^9.39.5",
+    "typescript": "~6.0.3"
+  }
+}

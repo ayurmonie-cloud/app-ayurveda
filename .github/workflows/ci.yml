@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Lint, types et tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+
+  database:
+    name: Base de données (migrations, RLS, types)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.119.0
+      - name: Démarrer Supabase et appliquer les migrations
+        run: supabase start --exclude studio,imgproxy,mailpit,edge-runtime,logflare,vector,realtime,supavisor
+      - name: Tests pgTAP (RLS et règles métier)
+        run: supabase test db
+      - name: Lint du schéma
+        run: supabase db lint --level error
+      - name: Types TypeScript à jour
+        run: |
+          pnpm db:types
+          git diff --exit-code packages/supabase/src/database.types.ts \
+            || (echo "::error::Types obsolètes : lance « pnpm db:types » et committe le résultat." && exit 1)
